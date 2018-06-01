@@ -12,12 +12,51 @@ class Solution {
 
     }
     int minCostClimbingStairs(vector<int>& cost) {
-      int minOneStepBelow = 0, minEndingHere = 0;
-      for (int i = 2; i <= cost.size(); i++) {
-          int curMin = min(minEndingHere + cost[i - 1], minOneStepBelow + cost[i - 2]);
-          minOneStepBelow = minEndingHere;
-          minEndingHere = curMin;
+
+      
+      int f_cost = cost[0];
+      int s_cost = cost[1];
+      int f_ca = 0;
+      int s_ca = 0;
+      int f_start_id = 0;
+      int s_start_id = 0;
+
+      int t_ca = 0;
+      int t_ca_id = 0;
+
+      if(f_cost+cost[1]>f_cost+cost[2]){
+          f_ca = f_cost+cost[2];
+          f_start_id = 2;
+      }else{
+          f_start_id = 1;
+          f_ca = f_cost+cost[1];
       }
+
+      if(s_cost+cost[2]>s_cost+cost[3]){
+          s_ca = s_cost+cost[3];
+          s_start_id = 3;
+      }else{
+          s_ca = s_cost+cost[2];
+          s_start_id = 2;
+      }
+
+      if(f_ca<s_ca){
+        t_ca_id = f_start_id;
+      }else{
+        t_ca_id = s_start_id;
+      }
+
+      int total = 0;
+      for(int i=t_ca_id;i<cost.size()-1;i++){
+        //total+=cost[i]<cost[i+1]?cost[i]
+        if(cost[i]<cost[i+1]){
+          total+=cost[i];
+        }else{
+          total+=cost[i+1];
+          i++;
+        }
+      }
+
       return minEndingHere;
     }
 };
