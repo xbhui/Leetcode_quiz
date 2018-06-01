@@ -13,7 +13,7 @@ class Solution {
     }
     int minCostClimbingStairs(vector<int>& cost) {
 
-      
+
       int f_cost = cost[0];
       int s_cost = cost[1];
       int f_ca = 0;
@@ -48,7 +48,6 @@ class Solution {
 
       int total = 0;
       for(int i=t_ca_id;i<cost.size()-1;i++){
-        //total+=cost[i]<cost[i+1]?cost[i]
         if(cost[i]<cost[i+1]){
           total+=cost[i];
         }else{
@@ -57,25 +56,26 @@ class Solution {
         }
       }
 
-      return minEndingHere;
+      return total;
     }
 };
 
 int main(int argc, char const *argv[]) {
 
-//  int values[] = {10, 15, 20};
-  int values[] = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+//  int values[] = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+
+  int values[] = {0,1,1,0};
   vector<int> v;
   v.insert(v.begin(),values[0]);
   v.insert(v.begin()+1,values[1]);
   v.insert(v.begin()+2,values[2]);
   v.insert(v.begin()+3,values[3]);
-  v.insert(v.begin()+4,values[4]);
-  v.insert(v.begin()+5,values[5]);
-  v.insert(v.begin()+6,values[6]);
-  v.insert(v.begin()+7,values[7]);
-  v.insert(v.begin()+8,values[8]);
-  v.insert(v.begin()+9,values[9]);
+  // v.insert(v.begin()+4,values[4]);
+  // v.insert(v.begin()+5,values[5]);
+  // v.insert(v.begin()+6,values[6]);
+  // v.insert(v.begin()+7,values[7]);
+  // v.insert(v.begin()+8,values[8]);
+  // v.insert(v.begin()+9,values[9]);
   Solution so;
   cout << "Solution:" <<so.minCostClimbingStairs(v) << endl;
   return 0;
