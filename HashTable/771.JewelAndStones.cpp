@@ -1,7 +1,4 @@
 #include <iostream>
-//#include <ext/hash_map>
-//#include <ext/hashtable.h>
-//#include <unordered_map>
 #include <map>
 
 using namespace std;
@@ -29,8 +26,6 @@ public:
 };
 
 int main(){
-
-
 //  string J = "aA", S = "aAAbbbb";
   string J = "z", S = "ZZaz";
   Solution so;
